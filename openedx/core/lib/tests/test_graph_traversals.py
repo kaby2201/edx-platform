@@ -78,19 +78,51 @@ class TestGraphTraversals(TestCase):
         ) == ['b1', 'c1', 'd1', 'e1', 'd2', 'e2', 'f1', 'c2']
 
     def test_post_order(self):
-        assert list(traverse_post_order(start_node='b1', get_children=(lambda node: self.parent_to_children_map[node]), filter_func=(lambda node: (node != 'd3')))) == ['e1', 'd1', 'f1', 'e2', 'd2', 'c1', 'c2', 'b1']
+        assert list(
+            traverse_post_order(
+                start_node='b1',
+                get_children=(lambda node: self.parent_to_children_map[node]),
+                filter_func=(lambda node: (node != 'd3')))
+        ) == ['e1', 'd1', 'f1', 'e2', 'd2', 'c1', 'c2', 'b1']
 
     def test_topological(self):
-        assert list(traverse_topologically(start_node='b1', get_children=(lambda node: self.parent_to_children_map[node]), get_parents=(lambda node: self.child_to_parents_map[node]), filter_func=(lambda node: (node != 'd3')))) == ['b1', 'c1', 'd1', 'd2', 'e1', 'e2', 'f1', 'c2']
+        assert list(
+            traverse_topologically(
+                start_node='b1',
+                get_children=(lambda node: self.parent_to_children_map[node]),
+                get_parents=(lambda node: self.child_to_parents_map[node]),
+                filter_func=(lambda node: (node != 'd3')))
+        ) == ['b1', 'c1', 'd1', 'd2', 'e1', 'e2', 'f1', 'c2']
 
     def test_topological_yield_descendants(self):
-        assert list(traverse_topologically(start_node='b1', get_children=(lambda node: self.parent_to_children_map[node]), get_parents=(lambda node: self.child_to_parents_map[node]), filter_func=(lambda node: (node != 'd2')), yield_descendants_of_unyielded=True)) == ['b1', 'c1', 'd1', 'e1', 'e2', 'f1', 'c2', 'd3']
+        assert list(
+            traverse_topologically(
+                start_node='b1',
+                get_children=(lambda node: self.parent_to_children_map[node]),
+                get_parents=(lambda node: self.child_to_parents_map[node]),
+                filter_func=(lambda node: (node != 'd2')),
+                yield_descendants_of_unyielded=True)
+        ) == ['b1', 'c1', 'd1', 'e1', 'e2', 'f1', 'c2', 'd3']
 
     def test_topological_not_yield_descendants(self):
-        assert list(traverse_topologically(start_node='b1', get_children=(lambda node: self.parent_to_children_map[node]), get_parents=(lambda node: self.child_to_parents_map[node]), filter_func=(lambda node: (node != 'd2')), yield_descendants_of_unyielded=False)) == ['b1', 'c1', 'd1', 'e1', 'c2', 'd3']
+        assert list(
+            traverse_topologically(
+                start_node='b1',
+                get_children=(lambda node: self.parent_to_children_map[node]),
+                get_parents=(lambda node: self.child_to_parents_map[node]),
+                filter_func=(lambda node: (node != 'd2')),
+                yield_descendants_of_unyielded=False)
+        ) == ['b1', 'c1', 'd1', 'e1', 'c2', 'd3']
 
     def test_topological_yield_single_node(self):
-        assert list(traverse_topologically(start_node='b1', get_children=(lambda node: self.parent_to_children_map[node]), get_parents=(lambda node: self.child_to_parents_map[node]), filter_func=(lambda node: (node == 'c2')), yield_descendants_of_unyielded=True)) == ['c2']
+        assert list(
+            traverse_topologically(
+                start_node='b1',
+                get_children=(lambda node: self.parent_to_children_map[node]),
+                get_parents=(lambda node: self.child_to_parents_map[node]),
+                filter_func=(lambda node: (node == 'c2')),
+                yield_descendants_of_unyielded=True)
+        ) == ['c2']
 
     def test_topological_complex(self):
         """

@@ -1,19 +1,17 @@
-import pytest
 """Tests for request_utils module."""
-
-
 import unittest
-from unittest.mock import Mock, patch, call
+from unittest.mock import Mock, call, patch
 
+import pytest
 from django.conf import settings
 from django.core.exceptions import SuspiciousOperation
 from django.test.client import RequestFactory
 
 from openedx.core.lib.request_utils import (
-    get_request_or_stub,
-    course_id_from_url,
-    safe_get_host,
     CookieMonitoringMiddleware,
+    course_id_from_url,
+    get_request_or_stub,
+    safe_get_host
 )
 
 
