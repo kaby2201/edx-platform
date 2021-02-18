@@ -99,8 +99,7 @@ class TestGatingApi(ModuleStoreTestCase, MilestonesTestCaseMixin):
     def test_validate_min_score_is_valid(self, min_score):
         """ Test test_validate_min_score_is_valid """
 
-        assert gating_api._validate_min_score(min_score) is None
-        # pylint: disable=protected-access
+        assert gating_api._validate_min_score(min_score) is None  # pylint: disable=protected-access
 
     @data('abc', '-10', '110')
     def test_validate_min_score_raises(self, min_score):

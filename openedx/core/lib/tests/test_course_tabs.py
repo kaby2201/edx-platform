@@ -1,9 +1,7 @@
-import pytest
 """ Tests of specific tabs. """
-
-
 from unittest import TestCase
 
+import pytest
 from mock import Mock, patch
 
 import xmodule.tabs as xmodule_tabs
@@ -33,7 +31,9 @@ class CourseTabPluginManagerTestCase(TestCase):
             "Third": create_mock_plugin(tab_type="Third", priority=3),
         }
         get_available_plugins.return_value = mock_plugins
-        assert [plugin.type for plugin in CourseTabPluginManager.get_tab_types()] == ['First', 'Second', 'Third', 'Duplicate', 'Duplicate', 'Last']
+        assert [plugin.type for plugin in CourseTabPluginManager.get_tab_types()] == [
+            'First', 'Second', 'Third', 'Duplicate', 'Duplicate', 'Last'
+        ]
 
 
 class KeyCheckerTestCase(TestCase):

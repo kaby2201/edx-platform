@@ -163,7 +163,7 @@ class DiscussionXBlockImportExportTests(TestCase):
         discussion_id_field = block.fields['discussion_id']
 
         # precondition checks - discussion_id does not have a value and uses UNIQUE_ID
-        assert discussion_id_field._get_cached_value(block) == NO_CACHE_VALUE
+        assert discussion_id_field._get_cached_value(block) == NO_CACHE_VALUE  # pylint: disable=W0212
         assert discussion_id_field.default == UNIQUE_ID
 
         block.add_xml_to_node(target_node)

@@ -163,4 +163,9 @@ class TestGraphTraversals(TestCase):
         }
         child_to_parents = self.get_child_to_parents_map(parent_to_children)
         for _ in range(2):  # should get the same result twice
-            assert list(traverse_topologically(start_node='root', get_children=(lambda node: parent_to_children[node]), get_parents=(lambda node: child_to_parents[node]))) == ['root', 'A', 'D', 'B', 'E', 'F', 'J', 'K', 'M', 'N', 'G', 'C', 'H', 'L', 'O', 'P', 'I']
+            assert list(
+                traverse_topologically(
+                    start_node='root',
+                    get_children=(lambda node: parent_to_children[node]),
+                    get_parents=(lambda node: child_to_parents[node]))
+            ) == ['root', 'A', 'D', 'B', 'E', 'F', 'J', 'K', 'M', 'N', 'G', 'C', 'H', 'L', 'O', 'P', 'I']
