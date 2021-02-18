@@ -48,8 +48,21 @@ class ZendeskProxyTestCase(ApiTestCase):
             (mock_args, mock_kwargs) = mock_post.call_args
             assert mock_args == ('https://www.superrealurlsthataredefinitelynotfake.com/api/v2/tickets.json',)
             six.assertCountEqual(self, mock_kwargs.keys(), ['headers', 'data'])
-            assert mock_kwargs['headers'] == {'content-type': 'application/json', 'Authorization': 'Bearer abcdefghijklmnopqrstuvwxyz1234567890'}
-            assert json.loads(mock_kwargs['data']) == {'ticket': {'comment': {'body': "Help! I'm trapped in a unit test factory and I can't get out!", 'uploads': None}, 'custom_fields': None, 'requester': {'email': 'JohnQStudent@example.com', 'name': 'John Q. Student'}, 'subject': 'Python Unit Test Help Request', 'tags': ['python_unit_test']}}
+            assert mock_kwargs['headers'] == {
+                'content-type': 'application/json', 'Authorization': 'Bearer abcdefghijklmnopqrstuvwxyz1234567890'
+            }
+            assert json.loads(mock_kwargs['data']) == {
+                'ticket':
+                    {
+                        'comment':
+                            {
+                                'body': "Help! I'm trapped in a unit test factory and I can't get out!", 'uploads': None
+                            }, 'custom_fields': None,
+                        'requester': {'email': 'JohnQStudent@example.com', 'name': 'John Q. Student'},
+                        'subject': 'Python Unit Test Help Request',
+                        'tags': ['python_unit_test']
+                    }
+            }
 
     @ddt.data('name', 'tags', 'email')
     def test_bad_request(self, key_to_delete):
