@@ -1,5 +1,3 @@
-import pytest
-# -*- coding: utf-8 -*-
 """
 Tests for xblock_utils.py
 """
@@ -7,7 +5,9 @@ Tests for xblock_utils.py
 import unittest
 from uuid import UUID
 
+import pytest
 from django.conf import settings
+
 from openedx.core.lib import blockstore_api as api
 
 # A fake UUID that won't represent any real bundle/draft/collection:

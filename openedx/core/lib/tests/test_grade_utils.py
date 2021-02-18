@@ -1,12 +1,11 @@
-import pytest
 """
 Tests for graph traversal generator functions.
 """
 
-
 from unittest import TestCase
 
 import ddt
+import pytest
 
 from ..grade_utils import compare_scores, round_away_from_zero
 

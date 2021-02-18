@@ -1,12 +1,10 @@
-import pytest
 """
 Tests of management command utility code
 """
-
-
 from unittest import TestCase
 
 import ddt
+import pytest
 from django.core.management import CommandError
 
 from .. import command_utils

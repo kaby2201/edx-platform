@@ -1,17 +1,15 @@
-import pytest
 """ Tests for API permissions classes. """
-
-
 import ddt
+import pytest
 from django.contrib.auth.models import AnonymousUser
 from django.http import Http404
 from django.test import RequestFactory, TestCase
 from opaque_keys.edx.keys import CourseKey
 from rest_framework.generics import GenericAPIView
 
-from openedx.core.lib.api.permissions import IsCourseStaffInstructor, IsMasterCourseStaffInstructor, IsStaffOrOwner
 from common.djangoapps.student.roles import CourseInstructorRole, CourseStaffRole
 from common.djangoapps.student.tests.factories import UserFactory
+from openedx.core.lib.api.permissions import IsCourseStaffInstructor, IsMasterCourseStaffInstructor, IsStaffOrOwner
 
 
 class TestObject(object):

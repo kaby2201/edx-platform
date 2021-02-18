@@ -1,9 +1,7 @@
-import pytest
 """
 Tests for the plugin API
 """
-
-
+import pytest
 from django.test import TestCase
 from edx_django_utils.plugins import PluginError
 

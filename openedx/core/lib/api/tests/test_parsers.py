@@ -1,14 +1,13 @@
-import pytest
 """
 TestCases verifying proper behavior of custom DRF request parsers.
 """
 
-
 from collections import namedtuple
 from io import BytesIO
 
+import pytest
 from rest_framework import exceptions
-from rest_framework.test import APITestCase, APIRequestFactory
+from rest_framework.test import APIRequestFactory, APITestCase
 
 from openedx.core.lib.api import parsers
 
