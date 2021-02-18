@@ -86,7 +86,8 @@ from ..views import USER_PROFILE_PII, AccountRetirementView
 from .retirement_helpers import (  # pylint: disable=unused-import
     RetirementTestCase,
     create_retirement_status,
-    fake_completed_retirement
+    fake_completed_retirement,
+    setup_retirement_states
 )
 
 
