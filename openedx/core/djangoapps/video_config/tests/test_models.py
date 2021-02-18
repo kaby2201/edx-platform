@@ -59,8 +59,12 @@ class FeatureFlagTestMixin(object):
             course_id=self.course_id_1,
             enabled_for_course=enabled_for_course_1
         ):
-            assert all_courses_model_class.feature_enabled(self.course_id_1) == (global_flag and (enabled_for_all_courses or enabled_for_course_1))
-            assert all_courses_model_class.feature_enabled(self.course_id_2) == (global_flag and enabled_for_all_courses)
+            assert all_courses_model_class.feature_enabled(self.course_id_1) == (
+                global_flag and (enabled_for_all_courses or enabled_for_course_1)
+            )
+            assert all_courses_model_class.feature_enabled(self.course_id_2) == (
+                global_flag and enabled_for_all_courses
+            )
 
     def verify_enable_disable_course_flag(self, all_courses_model_class, course_specific_model_class):
         """
