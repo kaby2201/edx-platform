@@ -221,7 +221,8 @@ class BatchCompletionMethodTests(CompletionWaffleTestMixin, TestCase):
         assert models.BlockCompletion.get_learning_context_completions(self.other_user, self.other_course_key) == {}
 
     def test_get_latest_block_completed(self):
-        assert models.BlockCompletion.get_latest_block_completed(self.user, self.course_key).block_key == self.block_keys[2]
+        assert models.BlockCompletion.get_latest_block_completed(self.user, self.course_key).block_key == \
+               self.block_keys[2]
 
     def test_get_latest_completed_none_exist(self):
         assert models.BlockCompletion.get_latest_block_completed(self.other_user, self.other_course_key) is None
