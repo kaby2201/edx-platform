@@ -190,7 +190,12 @@ class _AssertNumQueriesContext(CaptureQueriesContext):
             return
         filtered_queries = [query for query in self.captured_queries if is_unfiltered_query(query)]
         executed = len(filtered_queries)
-        assert executed == self.num, (u'%d queries executed, %d expected\nCaptured queries were:\n%s' % (executed, self.num, '\n'.join((query['sql'] for query in filtered_queries))))
+
+        assert executed == self.num, (
+            u'%d queries executed, %d expected\nCaptured queries were:\n%s' % (
+                executed, self.num, '\n'.join((query['sql'] for query in filtered_queries))
+            )
+        )
 
 
 class FilteredQueryCountMixin(object):

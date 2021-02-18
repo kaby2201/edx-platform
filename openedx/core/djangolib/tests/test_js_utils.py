@@ -162,7 +162,7 @@ class TestJSUtils(TestCase):
 
         expected_string_for_js = u"test\\u002D\\u003D\\u0026\\u005C\\u003B\\u0027\\u0022\\u003C\\u003E☃"
         self._validate_expectation_of_string_for_js(test_dict['test_string'], expected_string_for_js)
-        assert (("var test_string = '" + expected_string_for_js) + "'") in out
+        assert ("var test_string = '" + expected_string_for_js) + "'" in out
         assert "var test_none_string = ''" in out
         assert 'var test_tuple = [1, 2, 3]' in out
         assert 'var test_number = 3.5' in out
