@@ -71,7 +71,11 @@ class TestGraphTraversals(TestCase):
         return result
 
     def test_pre_order(self):
-        assert list(traverse_pre_order(start_node='b1', get_children=(lambda node: self.parent_to_children_map[node]), filter_func=(lambda node: (node != 'd3')))) == ['b1', 'c1', 'd1', 'e1', 'd2', 'e2', 'f1', 'c2']
+        assert list(
+            traverse_pre_order(start_node='b1',
+                               get_children=(lambda node: self.parent_to_children_map[node]),
+                               filter_func=(lambda node: (node != 'd3')))
+        ) == ['b1', 'c1', 'd1', 'e1', 'd2', 'e2', 'f1', 'c2']
 
     def test_post_order(self):
         assert list(traverse_post_order(start_node='b1', get_children=(lambda node: self.parent_to_children_map[node]), filter_func=(lambda node: (node != 'd3')))) == ['e1', 'd1', 'f1', 'e2', 'd2', 'c1', 'c2', 'b1']
