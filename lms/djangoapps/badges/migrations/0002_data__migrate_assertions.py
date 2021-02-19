@@ -7,7 +7,7 @@ import time
 from datetime import datetime
 
 import six
-from django.db import migrations
+from django.db import migrations, models
 
 
 def forwards(apps, schema_editor):

@@ -2,7 +2,7 @@
 
 
 from django.core.management import call_command
-from django.db import migrations
+from django.db import migrations, models
 
 
 def forwards(apps, schema_editor):
