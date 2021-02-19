@@ -16,6 +16,12 @@ from openedx.core.lib.time_zone_utils import get_display_time_zone
 from common.djangoapps.student.tests.factories import UserFactory
 from xmodule.modulestore.tests.django_utils import SharedModuleStoreTestCase
 from xmodule.modulestore.tests.factories import CourseFactory
+
+from ..accounts.tests.retirement_helpers import (  # pylint: disable=unused-import
+    RetirementTestCase,
+    fake_requested_retirement,
+    setup_retirement_states,
+)
 from ..models import UserOrgTag
 from ..tests.factories import UserPreferenceFactory
 
