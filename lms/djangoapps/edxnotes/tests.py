@@ -897,8 +897,8 @@ class EdxNotesHelpersTest(ModuleStoreTestCase):
         Tests `get_index` method returns unit url.
         """
         children = self.sequential.children
-        assert 0 == helpers.get_index(text_type(self.vertical.location), children)
-        assert 1 == helpers.get_index(text_type(self.vertical_with_container.location), children)
+        assert 0 == helpers.get_index(str(self.vertical.location), children)
+        assert 1 == helpers.get_index(str(self.vertical_with_container.location), children)
 
     @ddt.unpack
     @ddt.data(
