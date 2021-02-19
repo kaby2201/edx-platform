@@ -9,7 +9,8 @@ from django.contrib.auth.models import User  # lint-amnesty, pylint: disable=imp
 from django.core.management import CommandError, call_command
 
 from openedx.core.djangoapps.user_api.accounts.tests.retirement_helpers import (  # pylint: disable=unused-import
-    logged_out_retirement_request
+    logged_out_retirement_request,
+    setup_retirement_states
 )
 from openedx.core.djangoapps.user_api.models import RetirementState, UserRetirementRequest, UserRetirementStatus
 from common.djangoapps.student.tests.factories import UserFactory
